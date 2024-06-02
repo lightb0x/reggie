@@ -9,6 +9,7 @@ from __future__ import print_function
 import numpy as np
 import scipy.stats as ss
 import warnings
+from six import string_types
 
 from ...utils.misc import rstate
 from ...utils import linalg as la
@@ -42,7 +43,7 @@ class GP(ParameterizedModel):
         self._kern = self._register_obj('kern', kern)
         self._mean = self._register_obj('mean', mean)
 
-        if isinstance(inf, basestring):
+        if isinstance(inf, string_types):
             if inf in inference.__all__:
                 inf = getattr(inference, inf)
             else:
