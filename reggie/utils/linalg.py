@@ -46,7 +46,7 @@ def cholesky(A, maxtries=5):
         if np.any(d <= 0):
             raise LinAlgError('Matrix has non-positive diagonal elements')
         j = d.mean() * 1e-6
-        for _ in xrange(maxtries):
+        for _ in range(maxtries):
             L, info = lapack.dpotrf(add_diagonal(A, j, True), lower=1)
             if info == 0:
                 message = 'jitter of {:s} required to compute the cholesky'

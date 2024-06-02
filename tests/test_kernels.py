@@ -97,7 +97,7 @@ class RealKernelTest(KernelTest):
         G2 = np.array([spop.approx_fprime(x2, g, 1e-8, x1, i)
                        for x1 in self.X1
                        for x2 in self.X2
-                       for i in xrange(d)]).reshape(m, n, d, d)
+                       for i in range(d)]).reshape(m, n, d, d)
 
         nt.assert_allclose(G1, G2, rtol=1e-6, atol=1e-6)
 

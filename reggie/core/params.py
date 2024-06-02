@@ -288,7 +288,7 @@ class Parameters(object):
                 names.append(name)
             else:
                 names.extend('{:s}[{:d}]'.format(name, n)
-                             for n in xrange(param.value.size))
+                             for n in range(param.value.size))
         return names
 
     def describe(self):

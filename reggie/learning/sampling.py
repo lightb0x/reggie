@@ -55,12 +55,12 @@ def slice_sample(model, sigma=1.0, max_steps=1000, rng=None):
         lower = upper - sigma
         alpha = np.log(rng.rand())
 
-        for _ in xrange(max_steps):
+        for _ in range(max_steps):
             if get_logp(theta0 + direction*lower)[1] <= logp0 + alpha:
                 break
             lower -= sigma
 
-        for _ in xrange(max_steps):
+        for _ in range(max_steps):
             if get_logp(theta0 + direction*upper)[1] <= logp0 + alpha:
                 break
             upper += sigma
@@ -88,7 +88,7 @@ def slice_sample(model, sigma=1.0, max_steps=1000, rng=None):
 def sample(model, n, raw=False, rng=None):
     rng = rstate(rng)
     models = []
-    for _ in xrange(n):
+    for _ in range(n):
         model = slice_sample(model, rng=rng)
         models.append(model)
     if raw:

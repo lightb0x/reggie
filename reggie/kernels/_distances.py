@@ -47,5 +47,5 @@ def dist_foreach(X1, X2=None, metric='sqeuclidean'):
     the distances between X1 and itself.
     """
     X2 = X1 if (X2 is None) else X2
-    for i in xrange(X1.shape[1]):
+    for i in range(X1.shape[1]):
         yield ssd.cdist(X1[:, i, None], X2[:, i, None], metric)

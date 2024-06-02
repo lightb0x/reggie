@@ -21,14 +21,14 @@ def check_grad_one(g, f, x, *args):
     else:
         g1 = np.array([
             spop.approx_fprime(x, f, 1e-8, *[_[None, i] for _ in args])
-            for i in xrange(len(args[0]))])
+            for i in range(len(args[0]))])
     nt.assert_allclose(g1, g.reshape(g1.shape), rtol=1e-6, atol=1e-6)
 
 
 def check_grad(g, f, x, *args):
     g1 = np.array([
         spop.approx_fprime(x[None, i], f, 1e-8, *[_[None, i] for _ in args])
-        for i in xrange(len(x))])
+        for i in range(len(x))])
     nt.assert_allclose(g1, g.reshape(g1.shape), rtol=1e-6, atol=1e-6)
 
 

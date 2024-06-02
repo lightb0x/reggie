@@ -79,7 +79,7 @@ def laplace(like, kern, mean, X, Y):
     psi1, r, dy1, dy2, dy3 = psi(a)
     psi0 = np.inf
 
-    for _ in xrange(MAXIT):
+    for _ in range(MAXIT):
         # attempt to breakout early
         if np.abs(psi1 - psi0) < MINTOL:
             break
