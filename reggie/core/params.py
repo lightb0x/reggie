@@ -307,7 +307,9 @@ class Parameters(object):
         if len(self.__params) > 1:
             raise RuntimeError('priors cannot be set for more than one '
                                'parameter at a time')
-        list(self.__params.values())[0].set_prior(prior, *args, **kwargs)
+        for k in self.__params:
+            self.__params[k].set_prior(prior, *args, **kwargs)
+            break
         # pylint: disable=protected-access
         self.__obj._update()
 
