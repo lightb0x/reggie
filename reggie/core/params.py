@@ -245,8 +245,8 @@ class Parameters(object):
         if self.size == 0:
             return np.array([])
         else:
-            return np.hstack(param.gradfactor
-                             for param in self.__params.values())
+            return np.hstack([param.gradfactor
+                             for param in self.__params.values()])
 
     @property
     def block(self):
@@ -331,8 +331,8 @@ class Parameters(object):
         if self.size == 0:
             return np.array([])
         else:
-            return np.hstack(param.get_value(transform)
-                             for param in self.__params.values())
+            return np.hstack([param.get_value(transform)
+                             for param in self.__params.values()])
 
     def get_bounds(self, transform=False):
         """
