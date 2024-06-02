@@ -11,7 +11,6 @@ import scipy.optimize as spop
 import warnings
 
 from collections import namedtuple
-from itertools import izip
 
 from ...utils import linalg as la
 
@@ -182,7 +181,7 @@ def fitc(like, kern, mean, X, Y, U):
         + (np.inner(a, v*a) + np.inner(np.sum(W**2, axis=0), v)) / 2 / sn2)
 
     # iterator over gradients of the kernels
-    dK = izip(kern.get_grad(U),
+    dK = zip(kern.get_grad(U),
               kern.get_grad(U, X),
               kern.get_dgrad(X))
 
